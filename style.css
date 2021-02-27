@@ -1,0 +1,8 @@
+.gallery-list {
+  display: flex;
+  width: 500px;
+}
+
+.gallery-list__item:not(:last-child) {
+  margin-right: 10px;
+}
