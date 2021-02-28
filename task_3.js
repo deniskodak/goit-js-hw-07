@@ -18,7 +18,7 @@ const images = [
 
 const ulRef = document.querySelector('#gallery');
 const makeGalleryImage = ({ url, alt }) => {
-    return `<li><img src="${url}" alt="${alt}"></li>`;
+    return `<li class="gallery-list__item" ><img class="gallery-list__img" src="${url}" alt="${alt}"></li>`;
 }
 
 const makeGalleryImageList = images.map(makeGalleryImage).join('');
@@ -26,8 +26,3 @@ ulRef.insertAdjacentHTML('beforeend', makeGalleryImageList);
 
 ulRef.classList.add('gallery-list');
 
-const liList = ulRef.querySelectorAll('li');
-const liRef = [...liList].map(el => {
-  el.classList.add('gallery-list__item');
-  const img = el.querySelector('img').classList.add('gallery-list__img');
-});
