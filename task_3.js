@@ -22,15 +22,12 @@ const makeGalleryImage = ({ url, alt }) => {
 }
 
 const makeGalleryImageList = images.map(makeGalleryImage).join('');
-
-console.log(makeGalleryImageList);
-
 ulRef.insertAdjacentHTML('beforeend', makeGalleryImageList);
 
 ulRef.classList.add('gallery-list');
 
 const liList = ulRef.querySelectorAll('li');
 const liRef = [...liList].map(el => {
-    el.classList.add('gallery-list__item');
-    const img = el.querySelector('img').classList.add('gallery-list__img');
-}
+  el.classList.add('gallery-list__item');
+  const img = el.querySelector('img').classList.add('gallery-list__img');
+});

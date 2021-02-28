@@ -10,16 +10,16 @@ const ingredients = [
 ];
 
 
-const ulEl = document.querySelector('#ingredients');
+const ulRef = document.querySelector('#ingredients');
 
-const makeLiEl = array => {
+const makeLiRef = array => {
     return array.map(element => {
 
-        const liEl = document.createElement('li');
-        liEl.textContent = element;
-        return liEl;
+        const liRef = document.createElement('li');
+        liRef.textContent = element;
+        return liRef;
     });
 }
 
-const liList = makeLiEl(ingredients);
-ulEl.append(...liList);
+const liList = makeLiRef(ingredients);
+ulRef.append(...liList);

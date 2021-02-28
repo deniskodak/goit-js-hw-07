@@ -1,8 +1,8 @@
 "use strict";
 
-const ulEl = document.querySelector('#categories');
+const ulRef = document.querySelector('#categories');
 
-const ulChildreListEl = ulEl.children;
+const ulChildreList = ulRef.children;
 
 function showNumberOfElements(arr) {
     let total = 0;
@@ -11,17 +11,17 @@ function showNumberOfElements(arr) {
 
     return console.log(`В списке ${total} категории.`);
 }
-showNumberOfElements(ulChildreListEl);
+showNumberOfElements(ulChildreList);
 
 
 
-const ulChildrenEl = ulEl.querySelectorAll('li.item');
-
-console.dir(ulChildrenEl);
-
-function show(arr) {
-    const title = arr.querySelector('h2');
-    return console.log(title);
+const ulChildrenRef = ulRef.querySelectorAll('li.item');
+const showTitleAndNumberOfElements = arr => {
+    return [...arr].forEach(item => {
+        const titleRef = item.querySelector('h2');
+        const ulRef = item.querySelector('ul');
+        console.log(`Категория: ${titleRef.textContent}`);
+        console.log(`Количество элементов: ${ulRef.children.length}`);
+    })
 }
-
-show(ulChildrenEl);
+showTitleAndNumberOfElements(ulChildrenRef);

@@ -1,8 +1,28 @@
 .gallery-list {
   display: flex;
-  width: 500px;
+  flex-wrap: wrap;
+  list-style: none;
+}
+.gallery-list__item:not(:last-child) {
+  margin-bottom: 20px;
+}
+.gallery-list__img {
+  width: calc(100% / 2);
 }
 
-.gallery-list__item:not(:last-child) {
-  margin-right: 10px;
+.task-title {
+  font-size: 32px;
+  color: tomato;
+}
+
+#validation-input {
+  border: 3px solid #bdbdbd;
+}
+
+#validation-input.valid {
+  border-color: #4caf50;
+}
+
+#validation-input.invalid {
+  border-color: #f44336;
 }
