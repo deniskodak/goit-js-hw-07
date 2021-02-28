@@ -3,15 +3,21 @@ const parentDivRef = document.querySelector('#boxes');
 
 const createBoxes = (amount) => {
     let total = 30;
-    
+    console.log(amount);
     let array = [];
     array.length = amount;
     
     const createDiv = [...array].map(el => {
         const childDivRef = document.createElement('div');
+        
+        let x = Math.floor(Math.random() * 256);
+        let y = Math.floor(Math.random() * 256);
+        let z = Math.floor(Math.random() * 256);
+
+        childDivRef.style.backgroundColor = `rgb(${x}, ${y}, ${z})`
         childDivRef.style.width = `${total}px`;
         childDivRef.style.height = childDivRef.style.width;
-
+        
         total += 10;
         
         return childDivRef;
@@ -24,23 +30,14 @@ const destroyBoxes = () => {
     return parentDivRef.innerHTML = '';
 }
 
-const getInputValue = () => {
-    return console.log(inputRef.value);
-}
-
 const btnList = document.querySelectorAll('button');
-
+// Использовал функцию из 4го задания по поиску кнопок
 const getBtnByAttribute = (array, attribute) => {
     return [...array].find(btn => btn.dataset.action ===`${attribute}`);
 }
 
-
-inputRef.addEventListener('input', getInputValue);
-
-
 const btnRendertRef = getBtnByAttribute(btnList, 'render');
-btnRendertRef.addEventListener('click', createBoxes(inputRef.value));
+btnRendertRef.addEventListener('click', () => createBoxes(inputRef.value));
 
 const btnDestroyRef = getBtnByAttribute(btnList, 'destroy');
 btnDestroyRef.addEventListener('click', destroyBoxes);
-
